@@ -5,6 +5,7 @@ clean:
 
 histogram.png: histogram.tsv
 	Rscript -e 'library(ggplot2); qplot(Length, Freq, data=read.delim("$<")); ggsave("$@")'
+	rm Rplots.pdf
 
 histogram.tsv: histogram.r words.txt
 	Rscript $<
